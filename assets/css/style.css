@@ -1,113 +1,120 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  --primary-color: #7600bc ;
+  --font-light: lightgray;
+  --border: gray;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.6;
 }
 
 /* Navigation Bar */
 
 #home {
-  background-color:  #7600bc;
-  padding-bottom: 1cm;
-  margin-left:-1cm;
-  margin-right:-1cm;
-  margin-top:-1cm;
-  padding-top: 2cm;
-  padding-bottom: 2cm;
-  height: 5mm;
- }
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  padding: 1em 2em;
+}
+
+.menu-list{
+  list-style-type: none;
+  display: flex;
+  gap: 1em;
+}
 
 .topmenu {
-  color: lightgray;
-  margin: 10px;
-  padding: 20px;
-  font-size: 20px;
+  color: var(--font-light);
+  font-size: 1.3rem;
   text-decoration:none;
 }
 
 .topmenu:hover {
   color: white;
-  /* Add the styles here */
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
 }
 
-.topdiv {
-  float: right;
-  padding-right: 1cm;
-}
 
 .profile_name {
-  float: left;
-  padding-left: 2cm;
+ color: var(--font-light);
   /* Add the styles here */
+}
+
+.profile_name span{
+  font-size: 1.5rem;
 }
 
 .profile_name .contact_info {
-  font-size: 15px;
   font-style: italic;
   display: flex;
   align-items: center;
   flex-direction: row;
+  gap: 1em;
 }
 
 .contact_info img {
   width:25px;
-  margin-right: 10px;
-  float:left;
 }
 
-/* Titles */
+main{
+  padding: 1em;
+}
 
 h2 {
   text-align: justify;
-  font-size: 50px;
-  text-align: center;
-  float: left;
-  color: #7600bc;
-  margin: 30px;
-  margin-left: 60px;
-  margin-top: 40px;
-  margin-bottom: 0px;
-}
-
-.introduction {
-  text-align: justify;
-  font-size: 30px;
-  text-align: center;
-  float: left;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  animation-duration: 5s;
-  position: relative;
+  font-size: 2.5rem;
+  text-align: left;
+  color: var(--primary-color);
+  margin: 1em;
 }
 
 /* Used in the About Me sections */
 
-.container {
+.container{
   display: flex;
-}
-
-/* About Me */
-
-.about-me {
-  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 2em;
+  padding: 1em 2em;
 }
 
-#about-me h1 {
-  font-size: 65px;
-  margin-top: 90px;
-  color: #7600bc;
+.about{
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 90%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--primary-color);
 }
 
 #about-me p {
-  font-size: 25px;
+  font-size: 1.3rem;
   color: rgb(128, 128, 128);
-  margin-top: -1cm;
+  
 }
 
 .profile_image {
-  width: 550px;
-  height: fit-content;
-  vertical-align: middle;
-  margin: 5px;
+ width: 90%;
+ border-radius: 50%;
+ align-self: center;
 }
 
 /* Skills */
@@ -115,11 +122,12 @@ h2 {
 .all_skills {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-flow: wrap;
 }
 
 .skill {
-  border: 1px solid gray;
+  border: 1px solid var(--border);
   display: block;
   border-radius: 6px;
   text-align: center;
@@ -127,7 +135,7 @@ h2 {
   padding: 10px;
   width: 2in;
   font-size: 20px;
-  box-shadow: 0 3px 10px gray;
+  box-shadow: 0 3px 10px var(--border);
 }
 
 .skill img {
@@ -146,10 +154,13 @@ h2 {
 .skills p {
   align-items: center;
   font-size: 15px;
-  color: gray;
-  margin-block-start: 5px;
-  margin-block-end: 5px;
+  color: var(--border);
+  margin-block: 1em;
 } 
+
+.skill:hover{
+  transform: scale(1.1);
+}
 
 .flex_center {
   display: flex;
@@ -160,16 +171,22 @@ h2 {
 /* Projects */
 
 .projects-container {
-  margin-top: 30px;
-  margin-left: 60px;
+display: flex;
+flex-direction: column;
+gap: 2em;
+width: 75%;
+margin-inline-start: 4em;
 }
 
 .projects-container hr {
-  border: 1px solid lightgray;
+  border: 1px solid var(--font-light);
   width: 75%;
-  margin-left: 5cm;
+  margin-inline-start: 2em;
 }
 
+.projects-list{
+  padding-inline-start: 2em;
+}
 .project-card {
   margin: 0 15px 15px 30px;
   padding-bottom: 5px;
@@ -181,40 +198,42 @@ h2 {
 }
 
 .project-card li {
-  font-size: 20px;
-  margin-left: 30px;
+  font-size: 1.2rem;
+  
 }
 
 /* Recommendations */
 
 .all_recommendations {
   display: flex;
-  align-items: center;
-  margin-left: 1in;
+  justify-content: center;
   flex-direction: row;
-  flex-flow: wrap;
-  padding: 20px;
+  flex-wrap: wrap;
+  gap: 2em;
+  padding: 1.5em;
 }
 
 .recommendation {
   font-style: italic;
   text-align: left;
-  width: 21.875rem;
-  padding: 1rem;
+  padding: 1em;
   background-color: #fff;
   border-radius: 11px;
   box-shadow: 0 3px 10px var(--primary-shadow);
-  padding: 20px;
-  margin: 10px;
   border:1px solid gray;
-  font-size: 18px;
-  height:150px
+  font-size: 1.1rem;
+  max-width: 400px;
+  
 }
 
 .recommendation span {
-  color: #7600bc;
+  color: var(--primary-color);
   font-size: 20px;
   font-family: 'Times New Roman', Times, serif;
+}
+
+.recommendation:hover{
+  border: solid 2px var(--primary-color);
 }
 
 /* Scroll to Top Button */
@@ -223,7 +242,7 @@ h2 {
   width: 48px;
   height: 48px;
   border-radius: 100%;
-  background-color: #7600bc;
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -231,6 +250,11 @@ h2 {
   right: 3%;
   bottom: 3%;
   cursor: pointer;
+
+  .top-button{
+    width: 20px;
+    
+  }
 }
 
 /* Form Pop-up */
@@ -238,13 +262,13 @@ h2 {
 .popup {
   width:400px;
   background-color: #e8bcf0;
-  border-radius: 3mm;
+  border-radius: 5px;
   top: 50%;
   left:50%;
   transform: translate(-50%,-50%);
   text-align: center;
   position: fixed;
-  /* padding: 30px; */
+  padding: 1em;
   visibility: hidden;
 }
 
@@ -254,8 +278,8 @@ h2 {
 
 .popup button {
   background-color: #fff;
-  border: 1px solid #7600bc;
-  color: #7600bc;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
   display: block;
   border-radius: 6px;
   text-align: center;
@@ -268,8 +292,8 @@ h2 {
 
 .popup button:hover {
   background-color: #fff;
-  border: 2px solid #7600bc;
-  color: #7600bc;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
   display: block;
   font-weight: bolder;
   text-align: center;
@@ -279,10 +303,16 @@ h2 {
 
 /* Recommendation Form */
 
+.introduction{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
 input, textarea {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-  margin: 10px;  
+  margin-block: 1em;
   width:100%;
+  padding: 0.3em;
 }
 
 fieldset {
@@ -300,8 +330,8 @@ fieldset {
 
 button {
   background-color: #fff;
-  border: 1px solid #7600bc;
-  color: #7600bc;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
   display: block;
   border-radius: 6px;
   text-align: center;
@@ -312,11 +342,25 @@ button {
 }
 
 button:hover {
-  background-color: #7600bc;
-  border: 1px solid #7600bc;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   color: #fff;
   display: block;
   border-radius: 6px;
   text-align: center;
   cursor: pointer;
+}
+
+@media (min-width:850px){
+  #home{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
+
+@media (min-width: 1100px){
+  .container{
+  flex-direction: row;
+}
 }
